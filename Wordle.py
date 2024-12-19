@@ -1,3 +1,4 @@
+# Code by Victoria Waltz
 import random
 from turtle import *
 
@@ -266,24 +267,4 @@ for i in range(6):
     elif(check_win == False and count == 6):
         print("You lose! The wordle was " + "".join(wordle))
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
