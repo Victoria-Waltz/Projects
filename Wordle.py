@@ -154,84 +154,43 @@ for i in range(6):
     
     for row in board:
         print (row)
-
+        
+    penup()
     for x in range(5):
 
         #gets the positioning of the colored boxes
-        if(i==0 and x == 0):
-            penup()
-            setposition(-120,215)
-        elif(i==1 and x == 0):
-            penup()
-            setposition(-120,170)
-        elif(i==2 and x == 0):
-            penup()
-            setposition(-120,125)
-        elif(i==3 and x == 0):
-            penup()
-            setposition(-120,80)
-        elif(i==4 and x == 0):
-            penup()
-            setposition(-120,35)
-        elif(i==5 and x == 0):
-            penup()
-            setposition(-120,-10)
-            
-        # changes colors of boxes
+        xRange, yRange = -120, 215
+        setposition(xRange + (x * 50), (yRange - (i*45)))
+
+        # changes colors of boxes and draws on board
         if(board[i][x]) == "1":
             box("light green")
         elif(board[i][x]) == "2":
              box("yellow")
         else:
             box("gray")
-            
-        #positioning
+
         color("black")
-        penup()
-        forward(50)
-        pendown()
 
     # places guessed words on the board
+    penup()
     for x in range(5):
 
-        #gets the positioning for the letters
-        if(i==0 and x == 0):
-            penup()
-            setposition(-111,170)
-        elif(i==1 and x == 0):
-            penup()
-            setposition(-111,125)
-        elif(i==2 and x == 0):
-            penup()
-            setposition(-111,80)
-        elif(i==3 and x == 0):
-            penup()
-            setposition(-111,35)
-        elif(i==4 and x == 0):
-            penup()
-            setposition(-111,-10)
-        elif(i==5 and x == 0):
-            penup()
-            setposition(-111,-55)
+        xRange, yRange = -111, 170
+        setposition(xRange + (x * 50), (yRange - (i*45)))
 
         #places the lettters
         if(guess[x] == "W"):
             backward(6)
             write(guess[x], font=("Times New Roman", 30))
-            forward(6)
         elif(guess[x] == "I"):
             forward(4)
             write(guess[x], font=("Times New Roman", 30))
-            backward(4)
         elif(guess[x] == "M"):
             backward(4)
             write(guess[x], font=("Times New Roman", 30))
-            forward(4)
         else:
             write(guess[x], font=("Times New Roman", 30))
-        #positioning for letters    
-        if(x<4):
-            forward(50)
 
     # loop ensures correct color change on keyboard
     for x in range(5):
